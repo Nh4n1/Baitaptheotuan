@@ -1,0 +1,5 @@
+Sv1;Le Thanh Sy;08/12/1996;8.56
+Sv2;Nguyen My Nga;05/06/1996;3.32
+Sv3;Le Trung Giang;14/08/1961;8.76
+Sv4;Nguyen Hoang Hung;02/01/1981;9.67
+Sv5;Le Trung Nga;24/06/1985;7.29
