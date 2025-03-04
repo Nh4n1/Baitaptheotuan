@@ -20,12 +20,16 @@ public class QL {
 			if(isValidData(st,i)) {
 				String[] parts = st.split(";");
 				String msv=parts[0];
-				String ns=parts[1];
-				String sdt=parts[2];
+				String hoten=parts[1];
+				String ns=parts[2];
+				String sdt=parts[3];
+				String email=parts[4];
 				SinhVien sv=new SinhVien();
 				sv.setMsv(msv);
+				sv.setHoten(hoten);
 				sv.setNs(ns);
 				sv.setPhone(sdt);
+				sv.setEmail(email);
 				ds.add(sv);
 			}
 		}
@@ -40,12 +44,15 @@ public class QL {
 	public Boolean isValidData(String data,int idx) {
 		String[] parts = data.split(";");
 		String msv=parts[0];
-		String ns=parts[1];
-		String sdt=parts[2];
+		String hoten=parts[1];
+		String ns=parts[2];
+		String sdt=parts[3];
+		String email=parts[4];
+		
 		int flag=1;
-		int a[]= {0,0,0};
+		int a[]= {0,0,0,0,0};
 		String b[]= {
-				"Ma sinh vien khong hop le","Ngay sinh khong hop le","So dien thoai khong hop le"
+				"Ma sinh vien khong hop le","","Ngay sinh khong hop le","So dien thoai khong hop le","Email khong hop le"
 		};
 		if(!checkMsv(msv)) {
 			a[0]=1;
@@ -53,13 +60,17 @@ public class QL {
 			flag=0;
 		}
 		if(!isValidNs(ns)) {
-			a[1]=1;
+			a[2]=1;
 			
 			flag=0;
 		}
 		if(!isValidSdt(sdt)){
-			a[2]=1;
+			a[3]=1;
 		
+			flag=0;
+		}
+		if(!isValidEmail(email)) {
+			a[4]=1;
 			flag=0;
 		}
 		if(flag==0) {
@@ -74,6 +85,30 @@ public class QL {
 		
 		return true;
 	}
+	public Boolean isValidEmail(String email) {
+		int idxA=email.indexOf('@');
+		int idxLastDot=email.lastIndexOf('.');
+		String username = email.substring(0, idxA);
+		String domain=email.substring(idxA+1,idxLastDot);
+		if(!isValidPrefixA(username)) {
+			return false;
+		}
+		for (char c : domain.toCharArray()) {
+            if (!Character.isLetterOrDigit(c) && c != '-' && c != '.') {
+                return false;
+            }
+        }
+		return true;
+	}
+	public Boolean isValidPrefixA(String prefixA) {
+		for(char c:prefixA.toCharArray()) {
+			if(!Character.isLetterOrDigit(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public Boolean checkMsv(String msv) {
 		if(msv.length()!=10) return false;
 		if (!Character.isLetter(msv.charAt(2))) {
@@ -109,4 +144,5 @@ public class QL {
         }
         return true;
 	}
+	
 }
