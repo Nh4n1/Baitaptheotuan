@@ -11,6 +11,6 @@ Tran Thanh
 Ly
 8.0
 Sv4
-Tran Lam
+Tran Tam
 Toan
-5.0
+4.0
