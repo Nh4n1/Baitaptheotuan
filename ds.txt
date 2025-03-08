@@ -1,0 +1,16 @@
+Sv1
+Nguyen Hoang Ha
+Tin
+6.0
+Sv3
+Tran Thanh Nhan
+Tin
+8.0
+Sv2
+Tran Thanh
+Ly
+8.0
+Sv4
+Tran Lam
+Toan
+5.0
