@@ -3,7 +3,10 @@ package BaitapJFrame;
 public class SinhVien {
 	public String ht, tenlop, masv;
 	public float dtb;
-
+	
+	public SinhVien() {
+		
+	}
 	public SinhVien(String masv, String ht, String tenlop, float dtb) {
 		this.masv = masv;
 		this.ht = ht;
@@ -61,6 +64,6 @@ public class SinhVien {
 	}
 	@Override
 	public String toString() {
-		return "SinhVien [ht=" + ht + ", tenlop=" + tenlop + ", masv=" + masv + ", dtb=" + dtb + "]";
+		return masv+";"+ht+";"+tenlop+";"+dtb;
 	}
 }

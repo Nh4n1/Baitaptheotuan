@@ -268,6 +268,7 @@ public class FrmDanhSach extends JFrame {
 						ghi.println(sv.tenlop);
 						ghi.println(sv.dtb);
 					}
+
 					ghi.close();
 					JOptionPane.showMessageDialog(null, "Lưu thành công");
 
